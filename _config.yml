@@ -1,4 +1,4 @@
-markdown: rdiscount 
+markdown: kramdown 
 permalink: /:year/:month/:title 
 title: 刘思喆@贝吉塔行星
 url: http://bjt.name
