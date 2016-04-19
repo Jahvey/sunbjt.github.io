@@ -7,6 +7,4 @@ exclude: [ README.md, newpost.rb ]
 domain: www.bjt.name
 author: bjt
 email: sunbjt@gmail.com
-twitterID: sunbjt
-duoshuoShortname: sunbjt
 safe: true
