@@ -41,7 +41,7 @@
 
 
 ;;颜色主题
-(setq load-path (cons "D:/software/emacs" load-path))
+(setq load-path (cons "E:/software/emacs" load-path))
 (require 'color-theme)
 ;(color-theme-deep-blue)
 (color-theme-shaman)
@@ -62,13 +62,13 @@
 
 ;; Setting English Font
 (set-face-attribute
-  'default nil :font "Courier New 13")
+  'default nil :font "Courier New 11")
  
 ;; Chinese Font
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font)
                       charset
-                      (font-spec :family "Microsoft Yahei" :size 14)))
+                      (font-spec :family "Microsoft Yahei" :size 16)))
 
 ;; 支持emacs和外部程序的粘贴
 (setq x-select-enable-clipboard t)
@@ -141,7 +141,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(markdown-command "pandoc -s -c style.css --toc --highlight-style espresso -N --self-contained --data-dir=D:/Dropbox/configure/emacs/")
+ '(markdown-command "pandoc -s -c E:/github/sunbjt.github.io/upload/style.css --toc --highlight-style espresso -N --self-contained --gladtex")
 	;; use local math environment
 	;; '(markdown-command "pandoc -s -c style.css --toc --latexmathml --highlight-style espresso -N --self-contained --data-dir=D:/Dropbox/configure/emacs/")
  '(markdown-enable-math t)
