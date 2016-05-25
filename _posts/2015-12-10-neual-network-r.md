@@ -66,7 +66,13 @@ n <- 2 # number of cells of hidden layer
 syn0 = matrix(rnorm(m*n, 0, 0.1), nrow = m, ncol = n)
 syn1 = rnorm(n, 0, 0.1)
 
-for(j in 1:500){
+iter <- 100
+
+M <- matrix(0, iter * 3, 3) # 测试scale后的效果和中值后的
+M[,1] <- rep(1:iter, 3)
+M[,3] <- rep(1:3, each = iter)
+
+for(j in 1:iter){
 	l0 <- X
 	l1 <- nonlin(l0 %*% syn0)
 	l2 <- nonlin(l1 %*% syn1)
@@ -76,7 +82,49 @@ for(j in 1:500){
 	## update weights
   syn1 <- syn1 + 0.01 * t(l1) %*% l2_delta
   syn0 <- syn0 + 0.01 * t(l0) %*% l1_delta
-  print(sd(y - l2))
+  M[j,2] <- sd(y - l2)
 }
 
+
+m <- ncol(X)
+n <- 2 # number of cells of hidden layer
+syn0 = matrix(rnorm(m*n, 0, 0.1), nrow = m, ncol = n)
+syn1 = rnorm(n, 0, 0.1)
+
+for(j in 1:iter){
+	l0 <- scale(X)
+	l1 <- nonlin(l0 %*% syn0)
+	l2 <- nonlin(l1 %*% syn1)
+	l2_delta = (y - l2) * nonlin(l2, deriv = TRUE)
+	l1_error = l2_delta %*% t(syn1) # how much did each l1 value contribute to the l2 error (according to the weights)?
+	l1_delta = l1_error * nonlin(l1, deriv = TRUE)
+	## update weights
+  syn1 <- syn1 + 0.01 * t(l1) %*% l2_delta
+  syn0 <- syn0 + 0.01 * t(l0) %*% l1_delta
+  M[j + iter,2] <- sd(y - l2)
+}
+
+
+m <- ncol(X)
+n <- 2 # number of cells of hidden layer
+syn0 = matrix(rnorm(m*n, 0, 0.1), nrow = m, ncol = n)
+syn1 = rnorm(n, 0, 0.1)
+
+for(j in 1:iter){
+	l0 <- t(t(X) - colMeans(X))
+	l1 <- nonlin(l0 %*% syn0)
+	l2 <- nonlin(l1 %*% syn1)
+	l2_delta = (y - l2) * nonlin(l2, deriv = TRUE)
+	l1_error = l2_delta %*% t(syn1) # how much did each l1 value contribute to the l2 error (according to the weights)?
+	l1_delta = l1_error * nonlin(l1, deriv = TRUE)
+	## update weights
+  syn1 <- syn1 + 0.01 * t(l1) %*% l2_delta
+  syn0 <- syn0 + 0.01 * t(l0) %*% l1_delta
+  M[j + 2*iter,2] <- sd(y - l2)
+}
+
+M <- data.frame(M)
+M <- transform(M, X3 = as.factor(X3))
+library(ggplot2)
+ggplot(data = M, mapping = aes(x = X1, y = X2, colour = X3)) + geom_line(size = 1) + ylim(0,1)
 ```
