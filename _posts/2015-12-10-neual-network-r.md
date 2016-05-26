@@ -66,7 +66,7 @@ n <- 2 # number of cells of hidden layer
 syn0 = matrix(rnorm(m*n, 0, 0.1), nrow = m, ncol = n)
 syn1 = rnorm(n, 0, 0.1)
 
-iter <- 100
+iter <- 500
 
 M <- matrix(0, iter * 3, 3) # 测试scale后的效果和中值后的
 M[,1] <- rep(1:iter, 3)
@@ -124,7 +124,8 @@ for(j in 1:iter){
 }
 
 M <- data.frame(M)
-M <- transform(M, X3 = as.factor(X3))
+M <- transform(M, X3 = as.factor(X3))	
+names(M) <- c('iter','MSE','Class')
 library(ggplot2)
-ggplot(data = M, mapping = aes(x = X1, y = X2, colour = X3)) + geom_line(size = 1) + ylim(0,1)
+ggplot(data = M, mapping = aes(x = iter, y = MSE, colour = Class)) + geom_line(size = 1.5) + ylim(0,.65)
 ```
