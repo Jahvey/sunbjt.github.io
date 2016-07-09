@@ -7,7 +7,8 @@ permalink: /todo/
 
 ## 最近在干嘛 #
 
-- 2016.01 第二次review主题模型 - Structural Topic Model，以及VW和lightlda
+- 2016.07 发现shiny可以玩的东西很多，各种有趣的使用方式
+- 2016.01 第二次review主题模型 - Structural Topic Model(Done)
 - 2015.11 图数据库，主要在使用Neo4j(Pause)
 - 2015.11 Deep Learning (Done)
 
