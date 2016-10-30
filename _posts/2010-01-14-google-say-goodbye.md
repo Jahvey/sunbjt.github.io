@@ -40,7 +40,9 @@ www.google.com 最适宜对英文资料的搜索，很多童鞋对 google.com �
 	<li><a href="http://picasaweb.google.com/">Goolge Picasa：</a>图片分享，也不能用了</li>
 	<li>Google blog：其实挺好的 blog，由于众所周知的原因，被封了（偶尔也会能上）。唯一可惜的是，上面有很多不错的统计资源。</li>
 </ul>
+
 ### 软件类：
+
 <ul>
 	<li>Google 输入法：拼音输入法，表现中规中矩，可以同步用户词典。</li>
 	<li>Goolge 浏览器：感觉和 firefox 差不多，当然远远比 Internet explore 好很多很多辈（强调一下——不是倍）。</li>
