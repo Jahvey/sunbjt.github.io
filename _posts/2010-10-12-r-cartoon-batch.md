@@ -36,9 +36,11 @@ published: true
 这一过程使用<a href="http://www.imagemagick.technocozy.com/" target="_blank">ImageMagick</a>和<a href="http://www.r-project.org" target="_blank">R</a>来实现(Windows XP平台)：
 
 假如你的火影忍者的目录为D:/漫画/Naruto04，文件为001.jpg、002.jpg……，
-<pre lang="rsplus">setwd("D:/漫画/Naruto04")
-dd &lt;- dir()
-ff &lt;- function(x){
+
+```
+setwd("D:/漫画/Naruto04")
+dd <- dir()
+ff <- function(x){
     convert &lt;- paste("convert " , x ,
                      " -crop 2x1@ +repage +adjoin ",
                      "%d_",substr(x,1,3),".jpg",sep = '')
@@ -56,6 +58,8 @@ ff &lt;- function(x){
 
 for (j in dd) ff(j)
 shell(paste('convert *.jpg ', '1.pdf',sep = ''))
-</pre>
-<pre>注意：目标文件夹的所有文件将被替换！</pre>
-最后要强调的是，虽然Kindle没有辐射，和一般的纸质书区别不大，但看多了仍然有损视力 ^_^
+```
+
+> 注意：目标文件夹的所有文件将被替换！
+
+最后要强调的是，虽然 Kindle 没有辐射，和一般的纸质书区别不大，但看多了仍然有损视力 ^_^
