@@ -10,7 +10,7 @@ published: true
 ---
 前些天在准备<a href="http://cos.name/chinar/chinar-2010/" target="_blank">中国第三届R语言会议（上海）</a>的时候，
 翻到以前记录在Google Notebook里的一些材料，
-一篇是关于Google Codes关于<a href="http://google-styleguide.googlecode.com/svn/trunk/google-r-style.html">R代码的规范</a>，非常值得借鉴。
+一篇是关于Google Codes关于<a href="https://google.github.io/styleguide/Rguide.xml">R代码的规范</a>，非常值得借鉴。
 
 规范这个东西平时多多注意一些还是有好处的，就和作文一样，漂亮的字体总能有不错的加分。这里就不翻译原文了，摘一些 tips 供大家参考：
 
