@@ -9,7 +9,7 @@ type: post
 published: true
 ---
 
-几年前写过一篇简单的[博客](bjt.name/2012/12/RHive-install)来讲如何利用 RHive 协同操作 Hive 和 R。这个包貌似很久未做维护，不是太好用，
+几年前写过一篇简单的[博客](http://bjt.name/2012/12/RHive-install)来讲如何利用 RHive 协同操作 Hive 和 R。这个包貌似很久未做维护，不是太好用，
 其实 RHive 包底层通过 JDBC 调用数据，所以通过 RJDBC 其实是更简单的方式。废话少说，直接贴代码：
 
 
